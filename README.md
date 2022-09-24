@@ -1,6 +1,8 @@
 # Solipath Zig example project
 This is a quick showcase of using Solipath for a Zig project
 
+3 of the tests that convert a u64 to a string are currently broken on MacOS only, this may be due to my lack of experience with Zig, but Zig is also a very young language, so there is a chance it is just a bug.
+
 To build and run tests
 ```bash
 ./solipath zig build test
