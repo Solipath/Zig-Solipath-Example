@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+
+    runs-on: ${{matrix.os}}
+
+    strategy: 
+      matrix:
+        include:
+          - os: macos-latest
+            command: ./solipath zig build test
+          - os: ubuntu-latest
+            command: ./solipath zig build test
+          - os: windows-latest
+            command: .\solipath.bat zig build test
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run tests
+      run: ${{matrix.command}}
