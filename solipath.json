@@ -1,3 +1,4 @@
 [
-	{"name": "zig", "version": "0.9.1"}
+	{"name": "zig", "version": "0.11.0"},
+	{"name": "zls", "version": "0.11.0"}
 ]
