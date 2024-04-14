@@ -1,0 +1,22 @@
+name: Build
+on:
+  workflow_dispatch:
+  workflow_call:
+jobs:
+  build:
+
+    runs-on: ${{matrix.os}}
+
+    strategy: 
+      matrix:
+        include:
+          - os: macos-latest
+            command: ./solipath zig build test
+          - os: ubuntu-latest
+            command: ./solipath zig build test
+          - os: windows-latest
+            command: .\solipath.bat zig build test
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run tests
+      run: ${{matrix.command}}
